@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "judul",
+      "content": "ini content"
+    },
+    {
+      "id": "2",
+      "title": "judul 2",
+      "content": "ini content 2"
+    },
+    {
+      "id": "3",
+      "title": "judul 3",
+      "content": "ini content 3"
+    },
+    {
+      "id": "4",
+      "title": "judul 4",
+      "content": "ini content 4"
+    },
+    {
+      "id": "5",
+      "title": "judul 5",
+      "content": "ini content 5"
+    },
+    {
+      "id": "6",
+      "title": "judul 6",
+      "content": "ini content 6"
+    },
+    {
+      "id": "7",
+      "title": "judul 7",
+      "content": "ini content 7"
+    }
+  ]
+}
