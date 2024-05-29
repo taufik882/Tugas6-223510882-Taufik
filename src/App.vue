@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import { ref, onMounted, reactive } from 'vue';
 import axios from 'axios';
+import { ref, onMounted, reactive } from 'vue';
 
 export default {
   setup() {
@@ -32,7 +32,7 @@ export default {
 
     async function load() {
       try {
-        const response = await axios.get('http://localhost:3000/articles');
+        const response = await axios.get('/api/articles');
         articles.value = response.data;
       } catch (error) {
         console.error('Error loading articles:', error);
@@ -41,14 +41,12 @@ export default {
 
     async function save() {
       try {
-        const url = form.id 
-          ? `http://localhost:3000/articles/${form.id}` 
-          : 'http://localhost:3000/articles';
+        const url = form.id ? `/api/articles/${form.id}` : '/api/articles';
         const method = form.id ? 'put' : 'post';
         const response = await axios[method](url, form);
 
         if (form.id) {
-          articles.value = articles.value.map((article) =>
+          articles.value = articles.value.map(article =>
             article.id === response.data.id ? response.data : article
           );
         } else {
@@ -65,10 +63,7 @@ export default {
 
     async function deleteArticle(id) {
       try {
-        if (id === null || id === undefined) {
-          throw new Error('Article ID is null or undefined');
-        }
-        await axios.delete(`http://localhost:3000/articles/${id}`);
+        await axios.delete(`/api/articles/${id}`);
         articles.value = articles.value.filter(article => article.id !== id);
       } catch (error) {
         console.error('Error deleting article:', error);
@@ -85,7 +80,7 @@ export default {
 
     return { form, articles, save, deleteArticle, edit, load };
   }
-}
+};
 </script>
 
 <style scoped>
